@@ -1,13 +1,11 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf import settings
-from django.conf.urls.static import static
+from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('photos.urls')),
+    # 배포 환경에서도 미디어 파일을 강제로 서빙하기 위한 설정
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
-
-# DEBUG 모드가 아니더라도 /tmp/media (또는 설정된 MEDIA_ROOT)를 서빙하도록 설정
-# (Cloud Run 임시 저장소 사용을 위한 특수 설정)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
