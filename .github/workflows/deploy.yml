@@ -52,4 +52,5 @@ jobs:
             --image gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }} \
             --region ${{ env.REGION }} \
             --platform managed \
-            --allow-unauthenticated
+            --allow-unauthenticated \
+            --set-env-vars "DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }},BASE_URL=${{ secrets.BASE_URL }},GS_BUCKET_NAME=${{ secrets.GS_BUCKET_NAME }},DEBUG=False"

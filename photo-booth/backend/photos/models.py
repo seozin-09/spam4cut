@@ -22,9 +22,9 @@ class Photo(models.Model):
         
         # 3. QR 코드가 없고 이미지가 있는 경우에만 생성
         if not self.qr_code and self.image:
-            # 실제 모바일 기기 접속을 위해 로컬 IP 주소 사용
-            local_ip = "10.125.93.230" 
-            photo_url = f"http://{local_ip}:8000/api/photos/{self.id}/view/"
+            # 환경 변수에서 베이스 URL을 가져오거나 기본값 사용
+            base_url = os.environ.get('BASE_URL', 'http://localhost:8000')
+            photo_url = f"{base_url}/api/photos/{self.id}/view/"
             
             qr = qrcode.QRCode(
                 version=1,
