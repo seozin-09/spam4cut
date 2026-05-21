@@ -1,0 +1,125 @@
+.webcam-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  z-index: 9;
+}
+
+.camera-frame {
+  position: absolute;
+
+  top: 10vh;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 418px;
+  height: 586px;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+.webcam {
+  position: absolute;
+
+  top: 10vh;
+  left: 50%;
+
+  transform: translateX(-50%) scaleX(-1);
+
+  width: 418px;
+  height: 586px;
+
+  object-fit: cover;
+
+  z-index: 1;
+}
+
+.countdown-overlay {
+  position: absolute;
+
+  top: calc(10vh + 170px);
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 250px;
+  color: white;
+  font-weight: bold;
+  font-family: EF_jejudoldam;
+
+  opacity: 30%;
+
+  z-index: 3;
+}
+
+.controls {
+  position: absolute;
+
+  top: calc(10vh + 600px);
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  text-align: center;
+
+  z-index: 4;
+}
+
+.controls p {
+  margin: 0;
+
+  font-size: 30px;
+  font-family: Tienne-Regular;
+
+  color: black;
+}
+
+.camera-button {
+  position: absolute;
+
+  top: calc(10vh + 665px);
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 340px;
+  height: 58px;
+
+  border: none;
+  border-radius: 15px;
+
+  background-color: #a4a4a4;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 0.3s, transform 0.3s;
+
+  z-index: 4;
+}
+
+.camera-button:hover {
+  background-color: #7b7b7b;
+}
+
+.camera-icon {
+  width: 50px;
+  height: 50px;
+
+  z-index: 5;
+}

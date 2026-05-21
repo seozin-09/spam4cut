@@ -1,0 +1,37 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+ENV/
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Build outputs
+build/
+dist/
+.next/
+out/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

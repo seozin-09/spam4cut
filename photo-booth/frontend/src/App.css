@@ -1,0 +1,1018 @@
+App.css
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #ffebd2 !important;
+}
+
+/* ======================
+   FONT
+====================== */
+
+@font-face {
+  font-family: "MyFont";
+  src: url("./assets/fonts/MyFont.ttf") format("truetype");
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  background-color: #f1efef;
+}
+
+img {
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ======================
+   INTRO PAGE
+====================== */
+
+.intro-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #efeeeb;
+  padding-top: 6px;
+}
+
+.intro-wrap {
+  width: 100%;
+  max-width: 1700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro-image-box {
+  position: relative;
+  width: 100%;
+  max-width: 1680px;
+}
+
+.intro-main-image {
+  width: 100vw;
+  height: 100vh;
+  max-width: 1680px;
+  height: auto;
+  /* display: block; */
+  object-fit: fill;
+  background-image: url('../src/assets/main.png');
+}
+
+
+.intro-start-button {
+  position: absolute;
+
+  left: 50%;
+  bottom: 8%;
+
+  transform: translateX(-50%);
+
+  width: 720px;
+  height: 92px;
+
+  border: none;
+  border-radius: 20px;
+
+  background: #777;
+  color: #fff;
+
+  font-size: 34px;
+  font-family: "MyFont";
+
+  cursor: pointer;
+
+  z-index: 999;
+
+  transition: 0.15s ease;
+}
+
+.intro-start-button:hover {
+  background: #5f5f5f;
+}
+/* ======================
+   APP
+====================== */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #efeeeb;
+}
+
+/* ======================
+   MAIN CARD
+====================== */
+
+.main-card {
+  width: 100%;
+  max-width: 1700px;
+  padding: 43px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ======================
+   TITLE
+====================== */
+
+.title {
+  font-size: 68px;
+  font-weight: 800;
+  margin: 0 0 40px;
+  font-family: Georgia, serif;
+  text-align: center;
+}
+
+/* ======================
+   HOW TO USE
+====================== */
+
+.content-row {
+  width: 1180px;
+  display: grid;
+  grid-template-columns: 430px 650px;
+  gap: 72px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.image-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame {
+  position: relative;
+  width: 430px;
+  overflow: hidden;
+}
+
+.tutorial-image,
+.bottom-bar {
+  width: 430px;
+}
+
+.bottom-bar {
+  margin-top: -3px;
+}
+
+.people-icon {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 90px;
+  margin-left: -45px;
+  z-index: 10;
+}
+
+.text-area {
+  width: 650px;
+  font-size: 28px;
+  line-height: 1.7;
+  font-family: "MyFont";
+}
+
+.text-area p {
+  margin: 0 0 18px;
+}
+
+/* ======================
+   FRAME PAGE
+====================== */
+.frame-stage {
+  position: relative;
+  width: 100%;
+}
+
+.frame-bg {
+  width: 100%;
+  display: block;
+  /* display: flex;
+  align-items: center; */
+}
+
+.frame-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 5%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  box-sizing: border-box;
+  padding: 5% 2%;        /* 배경 어두운 박스 위치에 맞게 조절 */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.scroll-box {
+ /* 1. 크기 고정: 부모 박스(회색 사각형) 안에 가두기 */
+  width: 100%;
+  height: 100%; 
+  box-sizing: border-box;
+  overflow-x: scroll;    /* auto 대신 scroll로 강제 */
+  /* overflow-y: hidden; */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* center 대신 flex-start로 변경 (상단 정렬) */
+  /* justify-content: flex-start; */
+  gap: 20px;
+  padding-top: 20px;        /* 100px은 너무 과하니 20~40px 정도로 줄여보세요 */
+  padding-bottom: 25px;
+  box-sizing: border-box;
+  /* background-color: #111; */
+  
+
+  /* 스크롤바 항상 보이게 */
+  scrollbar-width: none;
+  scrollbar-color: rgba(0,0,0,0.25) transparent;
+}
+
+.scroll-box::-webkit-scrollbar {
+  height: 5px;
+}
+.scroll-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-box::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.25);
+  border-radius: 10px;
+}
+
+.frame-item {
+  flex-shrink: 0;
+  height: 90%;          /* ← 크기 여기서 조절 */
+  width: auto;
+  /* border-radius: 10px; */
+  cursor: pointer;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+
+  /* border 완전 제거 */
+  border: none;
+  outline: none;
+}
+
+.frame-item:hover {
+  transform: scale(1.04);
+}
+
+/* active 선택 시 border 없이 살짝 올라오는 효과만 */
+.frame-item.active {
+  transform: scale(1.06) translateY(-4px);
+}
+/* active 선택 시 border 없이 살짝 올라오는 효과만 */
+.frame-item.active {
+  transform: scale(1.06) translateY(-4px);
+}
+/* ======================
+   BUTTON
+====================== */
+
+.next-button {
+  width: 720px;
+  height: 92px;
+  border-radius: 20px;  
+  background: #777;
+  color: #fff;
+  font-size: 34px;
+  border: none;
+  cursor: pointer;
+  margin-top: 24px; 
+  position: relative; /* z-index를 먹이기 위해 필요 */
+  z-index: 999;
+}
+
+.next-button:hover {
+  background: #5f5f5f;
+}
+
+/* ======================
+   SHOOT PAGE
+====================== */
+
+.shoot-app {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #efeeeb;
+  display: flex;
+  justify-content: center;
+}
+
+.shoot-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.frame-preview-box {
+  display: flex;
+  justify-content: center;
+}
+
+.frame-slot {
+  position: relative;
+  width: 760px;
+  height: 620px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.shoot-light {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.shoot-light-1 {
+  width: 760px;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.shoot-light-2 {
+  width: 620px;
+  z-index: 2;
+  opacity: 0.95;
+}
+
+.shoot-card-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 396px;
+  height: auto;
+  margin: auto;
+  z-index: 3;
+  object-fit: contain;
+}
+
+.countdown-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 180px;
+  height: auto;
+  margin: auto;
+  z-index: 4;
+}
+
+/* ======================
+   SHOOT CONTROL
+====================== */
+
+.shoot-control {
+  width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.shoot-count {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  position: relative;
+  left: -10px;
+}
+
+.shutter-button-reset {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.shutter-button-reset:disabled {
+  cursor: default;
+}
+
+.shutter-bar-image {
+  width: 720px;
+}
+
+/* ======================
+   RESULT PAGE
+====================== */
+
+.result-app {
+  width: 100%;
+  min-height: 100vh;
+  background: #efeeeb;
+  display: flex;
+  justify-content: center;
+}
+
+.result-screen {
+  width: 100%;
+  max-width: 1700px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 90px;
+}
+
+.result-left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-frame-image {
+  width: 400px;
+}
+
+.result-image-button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.decorate-button {
+  margin-top: 24px;
+
+  width: 340px;
+  height: 72px;
+
+  border: none;
+  border-radius: 20px;
+
+  background: #777;
+  color: #fff;
+
+  font-size: 34px;
+  font-family: "MyFont";
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.28);
+}
+
+.decorate-button:hover {
+  background: #5f5f5f;
+}
+
+.decorate-image {
+  width: 620px;
+}
+
+.left-bubble-image {
+  position: absolute;
+  width: 185px;
+  right: -200px;
+  bottom: 73px;
+}
+
+.result-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qr-card {
+  width: 500px;
+  background: #f6f6f6;
+  border-radius: 28px;
+  padding: 26px 28px;
+}
+
+.qr-guide-text {
+  font-family: "MyFont";
+  font-size: 34px;
+  margin-bottom: 22px;
+  line-height: 1.25;
+}
+
+.qr-card-image-wrap {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.qr-box-image {
+  width: 160px;
+}
+
+.print-button {
+  margin-top: 34px;
+
+  width: 220px;
+  height: 62px;
+
+  border: none;
+  border-radius: 20px;
+
+  background: #777;
+  color: #fff;
+
+  font-size: 24px;
+  font-family: "MyFont";
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.28);
+}
+
+.print-button:hover {
+  background: #5f5f5f;
+}
+
+.print-bubble-image {
+  width: 220px;
+}
+
+/* ======================
+   DECORATE PAGE
+====================== */
+
+.decorate-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #efeeeb;
+  overflow: hidden;
+  display: flex;
+  /* justify-content: flex-start;  <-- 필요없으면 삭제 */
+}
+
+
+.decorate-timer-wrap {
+  position: absolute;
+  top: 28px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.decorate-timer-image {
+  width: 52px;
+}
+
+.decorate-timer-text {
+  font-size: 34px;
+  color: #333;
+  font-family: "MyFont";
+}
+
+
+.decorate-next-button {
+  width: 90px;
+  height: 440px;
+
+  border: none;
+  border-radius: 20px;
+
+  background: #666;
+  color: #fff;
+
+  font-size: 34px;
+  font-family: "MyFont";
+
+  cursor: pointer;
+
+  writing-mode: vertical-rl;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.28);
+  transition: 0.15s ease;
+}
+
+.decorate-next-button:hover {
+  background: #5f5f5f;
+}
+
+.decorate-layout {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  
+  /* 중앙 정렬로 바꾸면 왼쪽 여백이 균형 잡힙니다 */
+  justify-content: center; 
+  align-items: center; 
+  
+  /* 과도한 패딩은 지우고 적당히 조절하세요 */
+  padding-right: 47%; /* 오른쪽 스티커 패널 공간만큼만 비워두기 */
+  gap: 40px; /* 버튼과 프레임 사이 간격 */
+}
+
+.decorate-next-button-reset {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.decorate-print-button-image {
+  width: 95px;
+  height: auto;
+  flex-shrink: 0;
+  /* left: 200px;  <-- 이거 삭제하세요! */
+}
+.decorate-frame-image {
+  width: 520px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  /* left: 140px;  <-- 이것도 삭제하세요! */
+  z-index: 2;
+}
+
+.decorate-sticker-panel-image {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+}
+
+.decorate-sticker-panel{
+  background-color: #666;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  top: 0;
+  right: 0;
+  width: 47%;
+  height: 100%;
+  padding: 20px;
+}
+
+.decorate-star8-image {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+.decorate-star9-image {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+.decorate-star10-image {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+.decorate-star11-image {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+.decorate-star12-image {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+.decorate-star8-image {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+
+/* ======================
+   FILTER PAGE
+====================== */
+
+.filter-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #efeeeb;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-timer-wrap {
+  position: absolute;
+  top: 28px;
+  left: 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  z-index: 10;
+}
+
+.filter-timer-image {
+  width: 52px;
+}
+
+.filter-timer-text {
+  font-size: 34px;
+  color: #333;
+  font-family: "MyFont";
+}
+
+.filter-top-area {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
+.filter-main-frame-image {
+  width: 520px;
+  height: auto;
+  margin-top: 0;
+}
+
+.filter-next-button {
+  position: absolute;
+  right: 85px;
+  top: 74%;
+
+  width: 150px;
+  height: 62px;
+
+  border: none;
+  border-radius: 16px;
+
+  background: #666;
+  color: #fff;
+
+  font-size: 24px;
+  font-family: "MyFont";
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.28);
+  transition: 0.15s ease;
+
+  z-index: 20;
+}
+
+.filter-next-button:hover {
+  background: #5f5f5f;
+}
+
+.filter-bottom-panel {
+  width: 100%;
+  background: #9b9b9b;
+  padding: 18px 28px 12px;
+}
+
+.filter-list {
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-thumb-image {
+  width: 130px;
+  height: auto;
+  display: block;
+}
+
+.filter-label {
+  margin-top: 8px;
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+/* ======================
+   FINAL PAGE
+====================== */
+
+.final-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #efeeeb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.final-layout {
+  width: 100%;
+  max-width: 1320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+.final-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.final-frame-image {
+  width: 335px;
+  height: auto;
+  display: block;
+}
+
+/* 오른쪽 영역 전체를 세로 중앙 정렬 */
+.final-right {
+  display: flex;
+  flex-direction: column;   /* 내부 요소들을 위에서 아래로 나열 */
+  justify-content: center;  /* 수직 중앙 정렬 */
+  align-items: center;      /* 수평 중앙 정렬 */
+  gap: 24px;                /* QR카드와 버튼들 사이의 간격 (원하는 대로 조절) */
+  width: 100%;              /* 부모 레이아웃에 맞춰 너비 지정 */
+  /* background-color: turquoise; */
+  /* width: 478px; */
+}
+
+.final-qr-card {
+  width: 430px;
+  background: #f7f7f7;
+  border-radius: 24px;
+  padding: 22px 24px 18px;
+}
+
+.final-qr-text {
+  font-size: 28px;
+  line-height: 1.3;
+  color: #222;
+  margin-bottom: 18px;
+}
+
+.final-qr-box {
+  width: 110px;
+  height: 110px;
+  border-radius: 18px;
+  background: #cfc8c8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34px;
+  font-style: italic;
+  color: #111;
+  overflow: hidden; /* 이미지가 둥근 모서리를 넘지 않도록 함 */
+}
+
+.final-qr-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qr-loading-text {
+  font-size: 14px;
+  font-style: normal;
+  color: #555;
+  text-align: center;
+}
+
+
+/* 두 버튼을 가로로 나란히 배치하는 컨테이너 */
+.button-group {
+  display: flex;
+  flex-direction: row;      /* 가로로 나열 */
+  justify-content: center;  /* 가운데 정렬 */
+  /* background-color: tomato; */
+  align-items: center;      /* 높이(수직) 맞추기 */
+  gap: 16px;                /* 버튼과 버튼 사이의 간격 */
+  width: 100%;
+}
+
+/* 버튼 공통 스타일 수정 (기존 스타일에 맞춰 적용하세요) */
+.final-button, .final-print-button {
+  margin-top: 34px;
+  /* margin: 34px 10px 0; */
+  position: relative;
+  /* left: -30px; */
+  border: none;
+  background: #666;
+  color: #fff;
+  font-size: 28px;
+  padding: 18px 34px;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.22);
+}
+
+/* 
+
+.final-button {
+  margin-top: 34px;
+  position: relative;
+  left: -30px;
+  border: none;
+  background: #666;
+  color: #fff;
+  font-size: 28px;
+  padding: 18px 34px;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.22);
+}
+
+/* ======================
+   PRINT STYLES
+====================== */
+
+/* @media print {
+  @page {
+    size: auto;
+    margin: 0mm;
+  }
+  body {
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  } */
+  /* 인쇄 시 배경 이미지가 잘 나오도록 설정 */
+  /* * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+} */
+
+@media print {
+  @page {
+    /* 가로/세로를 세로형 규격(100mm 148mm)으로 명시 */
+    size: 100mm 148mm; 
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  /* 이미지를 감싸는 컨테이너 크기 고정 */
+  .print-container {
+    width: 100mm;
+    height: 148mm;
+    overflow: hidden;
+  }
+
+  /* 이미지가 비율을 유지하며 꽉 차게 설정 */
+  .print-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 여백 없이 꽉 채우고 남는 부분은 자름 */
+    object-position: center;
+  }
+}
