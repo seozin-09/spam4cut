@@ -19,5 +19,5 @@ COPY . /app/
 # 정적 파일 수집
 RUN python manage.py collectstatic --noinput
 
-# Gunicorn을 사용하여 서버 실행
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 config.wsgi:application
+# Gunicorn을 사용하여 서버 실행 (마이그레이션 포함)
+CMD sh -c "python manage.py migrate && gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 config.wsgi:application"

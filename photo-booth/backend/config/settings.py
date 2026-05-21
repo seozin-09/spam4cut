@@ -57,28 +57,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': '/tmp/db.sqlite3',
     }
 }
 
-# GCP에서 영구 저장을 하려면 DB를 Cloud SQL로 바꾸거나, 
-# 현재는 간단히 SQLite를 쓰되 미디어 파일은 버킷에 저장하는 설정을 나중에 추가해야 합니다.
-
-AUTH_PASSWORD_VALIDATORS = [
-    { 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator' },
-    { 'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator' },
-    { 'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator' },
-    { 'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator' },
-]
-
-LANGUAGE_CODE = 'ko-kr'
-TIME_ZONE = 'Asia/Seoul'
-USE_I18N = True
-USE_TZ = True
-
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# ... (기존 코드 생략)
 
 # GCP 버킷 사용 설정
 GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME')
@@ -89,7 +72,7 @@ if GS_BUCKET_NAME:
     MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
 else:
     MEDIA_URL = '/media/'
-    MEDIA_ROOT = BASE_DIR / 'media'
+    MEDIA_ROOT = '/tmp/media'
 
 CORS_ALLOW_ALL_ORIGINS = True # 실제 배포 시에는 Vercel 주소만 허용하도록 수정 권장
 
