@@ -19,9 +19,13 @@ class PhotoViewSet(viewsets.ModelViewSet):
         photo = Photo.objects.create(image=image)
         serializer = self.get_serializer(photo)
         
-        # 프론트엔드 요구사항에 맞춰 qr_code_url 추가
+        # 환경 변수에서 가져온 BASE_URL(백엔드 주소)을 사용하여 이미지 절대 경로 생성
+        base_url = os.environ.get('BASE_URL', request.build_absolute_uri('/')[:-1])
         data = serializer.data
-        data['qr_code_url'] = request.build_absolute_uri(photo.qr_code.url) if photo.qr_code else None
+        if photo.qr_code:
+            data['qr_code_url'] = f"{base_url}{photo.qr_code.url}"
+        else:
+            data['qr_code_url'] = None
         
         return Response(data, status=status.HTTP_201_CREATED)
 

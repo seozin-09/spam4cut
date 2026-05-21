@@ -90,4 +90,7 @@ else:
 
 CORS_ALLOW_ALL_ORIGINS = True # 실제 배포 시에는 Vercel 주소만 허용하도록 수정 권장
 
+# HTTPS 설정
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
