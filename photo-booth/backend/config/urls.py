@@ -8,5 +8,6 @@ urlpatterns = [
     path('api/', include('photos.urls')),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# DEBUG 모드가 아니더라도 /tmp/media (또는 설정된 MEDIA_ROOT)를 서빙하도록 설정
+# (Cloud Run 임시 저장소 사용을 위한 특수 설정)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
