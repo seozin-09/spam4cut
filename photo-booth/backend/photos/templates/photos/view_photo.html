@@ -46,9 +46,9 @@
 <body>
     <div class="container">
         <h1>추억이 저장되었습니다! 📸</h1>
-        <img src="{{ photo.image.url }}" alt="Photo">
+        <img src="{{ base_url }}{{ photo.image.url }}" alt="Photo">
         <br>
-        <a href="{{ photo.image.url }}" download class="download-btn">이미지 저장하기</a>
+        <a href="{{ base_url }}{{ photo.image.url }}" download class="download-btn">이미지 저장하기</a>
     </div>
 </body>
 </html>

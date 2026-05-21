@@ -33,4 +33,6 @@ class PhotoViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['get'], url_path='view')
     def view_photo(self, request, pk=None):
         photo = self.get_object()
-        return render(request, 'photos/view_photo.html', {'photo': photo})
+        import os # 이미 import 되어 있을 가능성 높음
+        base_url = os.environ.get('BASE_URL', request.build_absolute_uri('/')[:-1])
+        return render(request, 'photos/view_photo.html', {'photo': photo, 'base_url': base_url})
