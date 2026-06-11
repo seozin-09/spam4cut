@@ -131,7 +131,7 @@ export default function FinalPage({ finalFrame, photos, photoOffsets, stickers, 
 
           <div className="button-group">
             <button className="final-button" onClick={onReset}>처음으로</button>
-            <button className="final-print-button" onClick={() => handlePrint()}>출력하기</button>
+            {/* <button className="final-print-button" onClick={() => handlePrint()}>출력하기</button> */}
           </div>
         </div>
       </div>
