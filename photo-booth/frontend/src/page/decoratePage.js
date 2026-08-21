@@ -192,7 +192,12 @@ export default function DecoratePage({ stickers, setStickers, finalFrame, photos
   };
 
   return (
-    <div className="decorate-page" onClick={() => setTopStickerId(null)}>
+    <div
+      className="decorate-page"
+      onClick={() => setTopStickerId(null)}
+      onContextMenu={(e) => e.preventDefault()}
+      style={{ userSelect: 'none', WebkitUserSelect: 'none', WebkitTouchCallout: 'none' }}
+    >
       {/* 👇 2. 타이머 클릭 시 부모 클릭 이벤트 방지(stopPropagation) 추가 */}
       <div className="decorate-timer-wrap" onClick={(e) => e.stopPropagation()}>
         <img src={timer90} alt="" className="decorate-timer-image" />
@@ -276,16 +281,18 @@ export default function DecoratePage({ stickers, setStickers, finalFrame, photos
                           }
                           style={{
                             position: 'absolute',
-                            top: -15,
-                            left: -15,
-                            width: 25,
-                            height: 25,
+                            top: -20,
+                            left: -20,
+                            width: 38,
+                            height: 38,
                             background: 'red',
                             color: '#fff',
                             borderRadius: '50%',
                             textAlign: 'center',
                             cursor: 'pointer',
-                            lineHeight: '22px',
+                            lineHeight: '34px',
+                            fontSize: 20,
+                            touchAction: 'none',
                           }}
                         >
                           ×
@@ -296,10 +303,10 @@ export default function DecoratePage({ stickers, setStickers, finalFrame, photos
                           onPointerDown={(e) => handleRotate(sticker.id, e)}
                           style={{
                             position: 'absolute',
-                            top: -15,
-                            right: -15,
-                            width: 26,
-                            height: 26,
+                            top: -20,
+                            right: -20,
+                            width: 40,
+                            height: 40,
                             background: '#4dabf7',
                             borderRadius: '50%',
                             cursor: 'alias',
@@ -308,6 +315,7 @@ export default function DecoratePage({ stickers, setStickers, finalFrame, photos
                             justifyContent: 'center',
                             color: 'white',
                             border: '2px solid white',
+                            fontSize: 18,
                             touchAction: 'none',
                           }}
                         >
@@ -319,10 +327,10 @@ export default function DecoratePage({ stickers, setStickers, finalFrame, photos
                           onPointerDown={(e) => handleResize(sticker.id, e)}
                           style={{
                             position: 'absolute',
-                            bottom: -10,
-                            right: -10,
-                            width: 20,
-                            height: 20,
+                            bottom: -14,
+                            right: -14,
+                            width: 32,
+                            height: 32,
                             background: '#333',
                             border: '2px solid white',
                             borderRadius: '50%',
