@@ -125,7 +125,7 @@ export default function App() {
         photoOffsets={photoOffsets}
         stickers={stickers}
         setStickers={setStickers}
-        onNext={() => setPage("filter")}
+        onNext={() => setPage("final")}
         timeLeft={timeLeft}
       />
     );
