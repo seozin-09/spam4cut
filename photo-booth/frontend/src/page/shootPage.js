@@ -42,7 +42,7 @@ export default function ShootPage({ onComplete }) {
       const finishTimer = setTimeout(() => {
         setShowCountdown(false);
 
-        if (photoIndex < 4) {
+        if (photoIndex < 10) {
           setPhotoIndex((prev) => prev + 1);
         } else {
           setTimeout(() => {
